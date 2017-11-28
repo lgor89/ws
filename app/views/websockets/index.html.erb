@@ -1,0 +1,29 @@
+<%= form_for @websocket, url: {action: "create_websocket"}, remote: true do |f| %>
+  <%= f.text_field :host %>
+  <%= f.submit "Connect",id: 'submit_websocket' %>
+<% end %>
+<%= form_tag("/websocket", method: "get", remote: true) do %>
+  <%= label_tag(:q, "Send message:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Send", id: 'send_message') %>
+<% end %>
+<script>
+  document.getElementById('submit_websocket').addEventListener('click',function(){
+    host = document.getElementById('websocket_host')
+    ws = new WebSocket(host.value);
+    ws.onopen = function() {
+      alert("Connection opened...");
+      send_message();
+    };
+    ws.onclose = function() { console.log("Connection closed...") };
+    ws.onmessage = function(evt){console.log('received message: '+event.data)};
+  });
+function send_message(){
+  document.getElementById('send_message').addEventListener('click',function(){
+    message = document.getElementById('q').value;
+    ws.send(message);
+    alert('message_send_successfully');
+  })
+};
+
+</script>
