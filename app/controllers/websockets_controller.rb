@@ -6,13 +6,19 @@ class WebsocketsController < ApplicationController
   end
 
   def create_websocket
-    Websocket.create(host: params)
+    websocket = Websocket.new(host: params[:websocket][:host])
+    if websocket.save
+        render template: 'websockets/open_websocket'
+    end
   end
 
   def init_websocket
     env = request.env
     if Faye::WebSocket.websocket?(env)
       ws = Faye::WebSocket.new(env)
+      ws.on :open do |event|
+
+      end
       ws.on :message do |event|
         ws.send('you sended message: '+ event.data)
       end
@@ -27,7 +33,7 @@ class WebsocketsController < ApplicationController
 
     else
       # Normal HTTP request
-      render html: 'test websocket'
+      render html: 'wrong hostname'
     end
   end
 end

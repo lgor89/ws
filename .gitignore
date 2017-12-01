@@ -9,6 +9,8 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
+/config/database.yml
+/config/secrets.yml
 /tmp/*
 !/log/.keep
 !/tmp/.keep

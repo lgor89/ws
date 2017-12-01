@@ -6,7 +6,7 @@ class CreateUsersAndWebsockets < ActiveRecord::Migration[5.1]
     end
 
     create_table :websockets do |t|
-      t.string :host
+      t.string :host, null: false
       t.timestamps
     end
 

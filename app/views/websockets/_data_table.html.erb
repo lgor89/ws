@@ -1,0 +1,45 @@
+<div class='container' id='data_table'>
+  <div class="col-sm-6 col-sm-offset-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Signal</th>
+          <th>Data</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gpio1</td>
+          <td id='data_1'>10101010101</td>
+          <td><a href='#' onClick='edit_modal(this.id)' data-toggle='modal' id='1' data-target='#edit_modal' class='btn btn-info' data-remote=true>Edit</a></td>
+        </tr>
+        <tr>
+          <td>Gpio1</td>
+          <td id='data_2'>10101010101</td>
+          <td><a href='#' onClick='edit_modal(this.id)' data-toggle='modal' id='2' data-target='#edit_modal' class='btn btn-info' data-remote=true>Edit</a></td>
+        </tr>
+        <tr>
+          <td>Gpio1</td>
+          <td id='data_3'>10101010101</td>
+          <td><a href='#' onClick='edit_modal(this.id)' data-toggle='modal' id='3' data-target='#edit_modal' class='btn btn-info' data-remote=true>Edit</a></td>
+        </tr>
+        <tr>
+          <td>Gpio1</td>
+          <td id='data_4'>10101010101</td>
+          <td><a href='#' onClick='edit_modal(this.id)' data-toggle='modal' id='4' data-target='#edit_modal' class='btn btn-info' data-remote=true>Edit</a></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><a href='#'  id='close_websocket' class='btn btn-danger' data-remote=true>Exit</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+function edit_modal(clicked_id){
+  id = clicked_id;
+};
+</script>

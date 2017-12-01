@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20171128134148) do
   end
 
   create_table "websockets", force: :cascade do |t|
-    t.string "host"
+    t.string "host", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

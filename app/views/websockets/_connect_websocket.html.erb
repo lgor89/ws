@@ -1,0 +1,18 @@
+<div class='container' id='open_websocket'>
+  <div class="col-sm-4 col-sm-offset-4">
+    <div class="panel panel-primary" >
+      <div class="panel-heading">Connect to websocket</div>
+      <div class="panel-body">
+        <%= form_for @websocket, url: {action: "create_websocket"}, remote: true do |f| %>
+          <div class="form-group">
+            <%= f.label 'enter host name' %>
+            <%= f.text_field :host, class: 'form-control', placeholder: 'example ws://localhost:port/websocket' %>
+          </div>
+          <div class="form-group" align='center'>
+            <%= f.submit "Connect",id: 'submit_websocket',class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
